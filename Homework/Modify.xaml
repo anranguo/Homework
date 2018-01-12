@@ -1,0 +1,40 @@
+﻿<Window x:Class="Homework.Modify"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Homework"
+        mc:Ignorable="d"
+        Title="修改日程" Height="344.488" Width="300">
+    <StackPanel DockPanel.Dock="Top">
+        <DockPanel>
+            <TextBox Text="共${Binding Pattern}条记录，当前为第{Binding Pattern}条" />
+        </DockPanel>
+        <DockPanel>
+            <Label Content="活动：" DockPanel.Dock="Left" />
+            <TextBox Text="{Binding Pattern,UpdateSourceTrigger=PropertyChanged}" />
+        </DockPanel>
+        <DockPanel>
+            <Label Content="日期：" DockPanel.Dock="Left" />
+            <DatePicker  />
+        </DockPanel>
+        <DockPanel>
+            <Label Content="时间：" DockPanel.Dock="Left" />
+            <TextBox Text="{Binding Pattern,UpdateSourceTrigger=PropertyChanged}" />
+        </DockPanel>
+        <DockPanel>
+            <Label Content="地点：" DockPanel.Dock="Left" />
+            <TextBox Text="{Binding Pattern,UpdateSourceTrigger=PropertyChanged}" />
+        </DockPanel>
+        <DockPanel>
+            <Label Content="备注：" DockPanel.Dock="Left" />
+            <TextBox Text="{Binding Pattern,UpdateSourceTrigger=PropertyChanged}" Height="94" Width="250" TextChanged="TextBox_TextChanged" />
+        </DockPanel>
+        <Button Content="上一条" />
+        <Button Content="下一条" />
+        <Button Content="修改" />
+        <Button Content="删除" />
+
+
+    </StackPanel>
+</Window>

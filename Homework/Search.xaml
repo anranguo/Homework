@@ -1,0 +1,27 @@
+﻿<Window x:Class="Homework.Search"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Homework"
+        mc:Ignorable="d"
+        Title="查找日程" Height="300" Width="400">
+    <DockPanel>
+        <ToolBar DockPanel.Dock="Top">
+            <Label Content="查找条件：" />
+        <TextBox Text="{Binding Pattern}" MinWidth="120" />
+        <Button Content="开始查找" Command="{StaticResource StartFilter}" />
+        </ToolBar>
+        <DataGrid AutoGenerateColumns="True" VerticalAlignment="Top" SelectionChanged="DataGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn   Header="编号" Binding="{Binding Id}"/>
+                <DataGridTextColumn  Header="活动" Binding="{Binding Name}"/>
+                <DataGridTextColumn  Header="开始日期" Binding="{Binding BeginDate}"/>
+                <DataGridTextColumn  Header="开始时间" Binding="{Binding BeginTime}"/>
+                <DataGridTextColumn  Header="结束日期" Binding="{Binding EndDate}"/>
+                <DataGridTextColumn  Header="结束时间" Binding="{Binding EndTime}"/>
+                <DataGridTextColumn  Header="备注" Binding="{Binding Memo}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</Window>

@@ -1,0 +1,47 @@
+﻿<Window x:Class="Homework.Create"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Homework"
+        mc:Ignorable="d"
+        Title="添加日程" Height="305.905" Width="300
+        ">
+    <StackPanel DockPanel.Dock="Top">
+        <DockPanel>
+            <Label Content="活动名称：" DockPanel.Dock="Left" />
+            <TextBox Text="{Binding Pattern,UpdateSourceTrigger=PropertyChanged}" />
+        </DockPanel>
+        <DockPanel>
+            <Label Content="开始日期：" DockPanel.Dock="Left" />
+            <DatePicker  />
+        </DockPanel>
+        <DockPanel>
+            <Label Content="开始时间：" DockPanel.Dock="Left" />
+            <TextBox Text="{Binding Pattern,UpdateSourceTrigger=PropertyChanged}" />
+        </DockPanel>
+        <DockPanel>
+            <Label Content="结束日期：" DockPanel.Dock="Left" />
+            <DatePicker  />
+        </DockPanel>
+        <DockPanel>
+            <Label Content="结束时间：" DockPanel.Dock="Left" />
+            <TextBox Text="{Binding Pattern,UpdateSourceTrigger=PropertyChanged}" />
+        </DockPanel>
+        <DockPanel>
+            <Label Content="活动地点：" DockPanel.Dock="Left" />
+            <TextBox Text="{Binding Pattern,UpdateSourceTrigger=PropertyChanged}" />
+        </DockPanel>
+        <DockPanel>
+            <Label Content="活动备注：" DockPanel.Dock="Left" />
+            <TextBox Text="{Binding Pattern,UpdateSourceTrigger=PropertyChanged}" Height="94" Width="250" TextChanged="TextBox_TextChanged" />
+        </DockPanel>
+
+        <Button Content="重置" />
+        <Button Content="添加" />
+
+    </StackPanel>
+
+
+
+</Window>
