@@ -10,10 +10,10 @@
 
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="添加日程" Command="" />
-            <MenuItem Header="修改日程" Command="" />
-            <MenuItem Header="查找日程" Command="" />
-            <MenuItem Header="帮助" Command="" />
+            <MenuItem Header="添加日程" Click="OnCreate_Click"  />
+            <MenuItem Header="修改日程" Click="OnModify_Click" />
+            <MenuItem Header="查找日程" Click="OnSearch_Click" />
+            <MenuItem Header="帮助" Click="OnHelp_Click" />
         </Menu>
     </DockPanel>
 

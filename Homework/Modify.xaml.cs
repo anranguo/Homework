@@ -22,6 +22,21 @@ namespace Homework
         public Modify()
         {
             InitializeComponent();
+            _Linq = new LinqToSql();
+            this.DataContext = _Linq;
+        }
+        private LinqToSql _Linq;
+
+        private void OnSubmit_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                _Linq.Submit();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -156,7 +156,7 @@ namespace Homework
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BeginDate", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BeginDate")]
 		public string BeginDate
 		{
 			get
@@ -176,7 +176,7 @@ namespace Homework
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BeginTime", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BeginTime")]
 		public string BeginTime
 		{
 			get

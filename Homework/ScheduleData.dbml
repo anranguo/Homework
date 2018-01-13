@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Class="ScheduleDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Table Name="" Member="Schedule">
     <Type Name="Schedule">
-      <Column Member="Id" Type="System.Int32" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Member="Name" Type="System.String" CanBeNull="false" />
-      <Column Member="BeginDate" Type="System.String" CanBeNull="false" />
-      <Column Member="BeginTime" Type="System.String" CanBeNull="false" />
-      <Column Member="EndDate" Type="System.String" CanBeNull="true" />
-      <Column Member="EndTime" Type="System.String" CanBeNull="true" />
-      <Column Member="Place" Type="System.String" CanBeNull="true" />
-      <Column Member="Memo" Type="System.String" CanBeNull="true" />
+      <Column Name="Id" Type="System.Int32" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" CanBeNull="false" />
+      <Column Name="BeginDate" Type="System.String" CanBeNull="true" />
+      <Column Name="BeginTime" Type="System.String" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.String" CanBeNull="true" />
+      <Column Name="EndTime" Type="System.String" CanBeNull="true" />
+      <Column Name="Place" Type="System.String" CanBeNull="true" />
+      <Column Name="Memo" Type="System.String" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

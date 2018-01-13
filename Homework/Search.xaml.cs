@@ -22,7 +22,25 @@ namespace Homework
         public Search()
         {
             InitializeComponent();
+            _Model = new SearchModel();
+            this.DataContext = _Model;
+        }
+        private SearchModel _Model;
+        private void OnStartFilter_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            try
+            {
+                _Model.DoFilter();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
+        private void OnStartFilter_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
     }
 }

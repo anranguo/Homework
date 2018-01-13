@@ -6,21 +6,27 @@
         xmlns:local="clr-namespace:Homework"
         mc:Ignorable="d"
         Title="查找日程" Height="300" Width="400">
+    <Window.Resources>
+        <RoutedCommand x:Key="StartFilter" />
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource StartFilter}" Executed="OnStartFilter_Executed" CanExecute="OnStartFilter_CanExecute" />
+    </Window.CommandBindings>
     <DockPanel>
         <ToolBar DockPanel.Dock="Top">
             <Label Content="查找条件：" />
         <TextBox Text="{Binding Pattern}" MinWidth="120" />
         <Button Content="开始查找" Command="{StaticResource StartFilter}" />
         </ToolBar>
-        <DataGrid AutoGenerateColumns="True" VerticalAlignment="Top" SelectionChanged="DataGrid_SelectionChanged">
+        <DataGrid AutoGenerateColumns="False" VerticalAlignment="Top" ItemsSource="{Binding FilteredResults}">
             <DataGrid.Columns>
-                <DataGridTextColumn   Header="编号" Binding="{Binding Id}"/>
-                <DataGridTextColumn  Header="活动" Binding="{Binding Name}"/>
-                <DataGridTextColumn  Header="开始日期" Binding="{Binding BeginDate}"/>
-                <DataGridTextColumn  Header="开始时间" Binding="{Binding BeginTime}"/>
-                <DataGridTextColumn  Header="结束日期" Binding="{Binding EndDate}"/>
-                <DataGridTextColumn  Header="结束时间" Binding="{Binding EndTime}"/>
-                <DataGridTextColumn  Header="备注" Binding="{Binding Memo}" />
+                <DataGridTextColumn  Header="编号" />
+                <DataGridTextColumn  Header="活动" />
+                <DataGridTextColumn  Header="开始日期" />
+                <DataGridTextColumn  Header="开始时间" />
+                <DataGridTextColumn  Header="结束日期"/>
+                <DataGridTextColumn  Header="结束时间" />
+                <DataGridTextColumn  Header="备注"  />
             </DataGrid.Columns>
         </DataGrid>
     </DockPanel>

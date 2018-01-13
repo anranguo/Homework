@@ -24,5 +24,29 @@ namespace Homework
         {
             InitializeComponent();
         }
+
+        private void OnCreate_Click(object sender, RoutedEventArgs e)
+        {
+            Create c = new Create();
+            c.Show();
+        }
+
+        private void OnModify_Click(object sender, RoutedEventArgs e)
+        {
+            Modify m = new Modify();
+            m.Show();
+        }
+
+        private void OnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            Search s = new Search();
+            s.Show();
+
+        }
+
+        private void OnHelp_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

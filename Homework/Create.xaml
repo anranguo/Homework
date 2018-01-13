@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Homework"
         mc:Ignorable="d"
-        Title="添加日程" Height="305.905" Width="300
+        Title="添加日程" Height="350" Width="300
         ">
     <StackPanel DockPanel.Dock="Top">
         <DockPanel>
             <Label Content="活动名称：" DockPanel.Dock="Left" />
-            <TextBox Text="{Binding Pattern,UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Text="" />
         </DockPanel>
         <DockPanel>
             <Label Content="开始日期：" DockPanel.Dock="Left" />
@@ -18,7 +18,7 @@
         </DockPanel>
         <DockPanel>
             <Label Content="开始时间：" DockPanel.Dock="Left" />
-            <TextBox Text="{Binding Pattern,UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Text="" />
         </DockPanel>
         <DockPanel>
             <Label Content="结束日期：" DockPanel.Dock="Left" />
@@ -26,15 +26,15 @@
         </DockPanel>
         <DockPanel>
             <Label Content="结束时间：" DockPanel.Dock="Left" />
-            <TextBox Text="{Binding Pattern,UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Text=" " />
         </DockPanel>
         <DockPanel>
             <Label Content="活动地点：" DockPanel.Dock="Left" />
-            <TextBox Text="{Binding Pattern,UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Text=" " />
         </DockPanel>
         <DockPanel>
             <Label Content="活动备注：" DockPanel.Dock="Left" />
-            <TextBox Text="{Binding Pattern,UpdateSourceTrigger=PropertyChanged}" Height="94" Width="250" TextChanged="TextBox_TextChanged" />
+            <TextBox Text=" " Height="94" Width="223"  />
         </DockPanel>
 
         <Button Content="重置" />

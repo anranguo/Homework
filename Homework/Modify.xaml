@@ -6,35 +6,21 @@
         xmlns:local="clr-namespace:Homework"
         mc:Ignorable="d"
         Title="修改日程" Height="344.488" Width="300">
-    <StackPanel DockPanel.Dock="Top">
-        <DockPanel>
-            <TextBox Text="共${Binding Pattern}条记录，当前为第{Binding Pattern}条" />
-        </DockPanel>
-        <DockPanel>
-            <Label Content="活动：" DockPanel.Dock="Left" />
-            <TextBox Text="{Binding Pattern,UpdateSourceTrigger=PropertyChanged}" />
-        </DockPanel>
-        <DockPanel>
-            <Label Content="日期：" DockPanel.Dock="Left" />
-            <DatePicker  />
-        </DockPanel>
-        <DockPanel>
-            <Label Content="时间：" DockPanel.Dock="Left" />
-            <TextBox Text="{Binding Pattern,UpdateSourceTrigger=PropertyChanged}" />
-        </DockPanel>
-        <DockPanel>
-            <Label Content="地点：" DockPanel.Dock="Left" />
-            <TextBox Text="{Binding Pattern,UpdateSourceTrigger=PropertyChanged}" />
-        </DockPanel>
-        <DockPanel>
-            <Label Content="备注：" DockPanel.Dock="Left" />
-            <TextBox Text="{Binding Pattern,UpdateSourceTrigger=PropertyChanged}" Height="94" Width="250" TextChanged="TextBox_TextChanged" />
-        </DockPanel>
-        <Button Content="上一条" />
-        <Button Content="下一条" />
-        <Button Content="修改" />
-        <Button Content="删除" />
-
-
+    <StackPanel>
+        <DataGrid ItemsSource="{Binding Schedules}" AutoGenerateColumns="False">
+            <DataGrid.Columns >
+                <DataGridTextColumn  Header="编号" Binding="{Binding Id}"/>
+                <DataGridTextColumn  Header="活动" Binding="{Binding Name}"/>
+                <DataGridTextColumn  Header="开始日期" Binding="{Binding BeginDate}"/>
+                <DataGridTextColumn  Header="开始时间" Binding="{Binding BeginTime}"/>
+                <DataGridTextColumn  Header="结束日期" Binding="{Binding EndDate}"/>
+                <DataGridTextColumn  Header="结束时间" Binding="{Binding EndTime}"/>
+                <DataGridTextColumn  Header="备注" Binding="{Binding Memo}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="确认修改" Click="OnSubmit_Click"/>
     </StackPanel>
+    
+    
+    
 </Window>
