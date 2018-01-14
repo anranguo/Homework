@@ -13,6 +13,7 @@
             <MenuItem Header="添加日程" Click="OnCreate_Click"  />
             <MenuItem Header="修改日程" Click="OnModify_Click" />
             <MenuItem Header="查找日程" Click="OnSearch_Click" />
+            <MenuItem Header="开启提醒" Click="OnAlarm_Click" />
             <MenuItem Header="帮助" Click="OnHelp_Click" />
         </Menu>
     </DockPanel>

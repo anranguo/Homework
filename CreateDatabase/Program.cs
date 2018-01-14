@@ -28,13 +28,40 @@ namespace CreateDatabase
                         Console.WriteLine("数据库已经存在！");
                     }
 
-                    Schedule aNewSchedule = new Schedule { Name = "睡觉", BeginDate = "qqq", BeginTime = "qqqqq" };
+                    Schedule aNewSchedule = new Schedule { Name = "睡wqcfv", BeginDate = "2018/1/14", BeginTime = "17:38:00" };
                     aDataContext.Schedule.InsertOnSubmit(aNewSchedule);
                     aDataContext.SubmitChanges();
 
                     List<Schedule> Records = new List<Schedule>();
                     List<Schedule> FilteredResults = new List<Schedule>();
                     Records =aDataContext.Schedule.ToList();
+
+                    while (true)
+                    {
+                        for (int i = 0; i < Records.Count; i++)
+                        {
+                            string[] BeginDateArray = Records[i].BeginDate.Split('/');
+                            string[] BeginTimeArray = Records[i].BeginTime.Split(':');
+                            if (BeginDateArray.Length == 3 && BeginTimeArray.Length == 3)
+                            {
+                                int BeginYear = int.Parse(BeginDateArray[0]);
+                                int BeginMonth = int.Parse(BeginDateArray[1]);
+                                int BeginDay = int.Parse(BeginDateArray[2]);
+                                int BeginHour = int.Parse(BeginTimeArray[0]);
+                                int BeginMinute = int.Parse(BeginTimeArray[1]);
+                                int BeginSecond = int.Parse(BeginTimeArray[2]);
+                               // Console.WriteLine(BeginYear);
+                               // Console.WriteLine(BeginMinute);
+                                if ((BeginYear == System.DateTime.Now.Year) && (BeginMonth == System.DateTime.Now.Month) && (BeginDay == System.DateTime.Now.Day) && (BeginHour == System.DateTime.Now.Hour) && (BeginMinute == System.DateTime.Now.Minute) && (BeginSecond == System.DateTime.Now.Second))
+                                {
+                                    Console.WriteLine(Records[i].Name);
+                                }
+                            }
+                        }
+                    }
+
+
+
                     string Pattern = "2018";
                     Regex aRegex = new Regex(Pattern);
                     for (int i = 0; i < Records.Count; i++)

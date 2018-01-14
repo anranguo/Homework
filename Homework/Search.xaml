@@ -18,7 +18,7 @@
         <TextBox Text="{Binding Pattern}" MinWidth="120" />
         <Button Content="开始查找" Command="{StaticResource StartFilter}" />
         </ToolBar>
-        <DataGrid AutoGenerateColumns="True" VerticalAlignment="Top" ItemsSource="{Binding FilteredResults}" >
+        <DataGrid AutoGenerateColumns="True" VerticalAlignment="Top" ItemsSource="{Binding FilteredResults}" IsReadOnly="True" >
         </DataGrid>
     </DockPanel>
 </Window>

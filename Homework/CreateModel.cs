@@ -19,8 +19,6 @@ namespace Homework
         public void Submit()
         {
             Schedule aNewSchedule = new Schedule { Name = this.Name, BeginDate = this.BeginDate, BeginTime = this.BeginTime, EndDate = this.EndDate, EndTime = this.EndTime, Place = this.Place, Memo = this.Memo };
-
-            //Schedule aNewSchedule = new Schedule { Name=this.Name, BeginDate=this.BeginDate.ToString("yyyy/mm/dd"), BeginTime=this.BeginTime, EndDate=this.EndDate.ToLongDateString(),EndTime=this.EndTime,Place = this.Place,Memo=this.Memo};
             DataContext.Schedule.InsertOnSubmit(aNewSchedule);
             DataContext.SubmitChanges();
         }

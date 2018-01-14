@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -47,6 +48,12 @@ namespace Homework
         private void OnHelp_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void OnAlarm_Click(object sender, RoutedEventArgs e)
+        {
+            Alarm a = new Alarm();
+            a.Show();
         }
     }
 }

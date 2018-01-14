@@ -28,6 +28,7 @@ namespace Homework
         }
         private CreateModel _Model;
 
+
         private void OnStartAdd_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             try
@@ -45,5 +46,7 @@ namespace Homework
         {
             e.CanExecute = true;
         }
+
+
     }
 }
