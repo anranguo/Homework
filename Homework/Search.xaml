@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Homework"
         mc:Ignorable="d"
-        Title="查找日程" Height="300" Width="400">
+        Title="查找日程" Height="300" Width="500">
     <Window.Resources>
         <RoutedCommand x:Key="StartFilter" />
     </Window.Resources>

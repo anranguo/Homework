@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Homework"
         mc:Ignorable="d"
-        Title="Alarm" Height="100" Width="100">
+        Title="打开提醒" Height="100" Width="200">
     <DockPanel>
-        <Button Content="打开提醒" Click="OnAlarm_Click" />
+        <Label Content="若想关闭提醒，关闭此窗口即可。" />
     </DockPanel>
 
 

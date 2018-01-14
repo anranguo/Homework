@@ -31,14 +31,8 @@ namespace Homework
             aBackgroundWorker.WorkerSupportsCancellation = true;
             aBackgroundWorker.DoWork += new DoWorkEventHandler(_Model.Alarm);
             aBackgroundWorker.RunWorkerAsync(this);
-
-
         }
         private AlarmModel _Model;
 
-        private void OnAlarm_Click(object sender, RoutedEventArgs e)
-        {
-           // _Model.Alarm();
-        }
     }
 }

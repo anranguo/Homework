@@ -35,7 +35,7 @@ namespace CreateDatabase
                     List<Schedule> Records = new List<Schedule>();
                     List<Schedule> FilteredResults = new List<Schedule>();
                     Records =aDataContext.Schedule.ToList();
-
+                    /*
                     while (true)
                     {
                         for (int i = 0; i < Records.Count; i++)
@@ -50,8 +50,6 @@ namespace CreateDatabase
                                 int BeginHour = int.Parse(BeginTimeArray[0]);
                                 int BeginMinute = int.Parse(BeginTimeArray[1]);
                                 int BeginSecond = int.Parse(BeginTimeArray[2]);
-                               // Console.WriteLine(BeginYear);
-                               // Console.WriteLine(BeginMinute);
                                 if ((BeginYear == System.DateTime.Now.Year) && (BeginMonth == System.DateTime.Now.Month) && (BeginDay == System.DateTime.Now.Day) && (BeginHour == System.DateTime.Now.Hour) && (BeginMinute == System.DateTime.Now.Minute) && (BeginSecond == System.DateTime.Now.Second))
                                 {
                                     Console.WriteLine(Records[i].Name);
@@ -59,7 +57,7 @@ namespace CreateDatabase
                             }
                         }
                     }
-
+                    */
 
 
                     string Pattern = "2018";

@@ -47,6 +47,8 @@ namespace Homework
 
         private void OnHelp_Click(object sender, RoutedEventArgs e)
         {
+            Help h = new Help();
+            h.Show();
 
         }
 
