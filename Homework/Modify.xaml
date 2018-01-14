@@ -6,6 +6,12 @@
         xmlns:local="clr-namespace:Homework"
         mc:Ignorable="d"
         Title="修改日程" Height="344.488" Width="300">
+    <Window.Resources>
+        <RoutedCommand x:Key="StartModify" />
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource StartModify}" Executed="OnStartModify_Executed" CanExecute="OnStartModify_CanExecute" />
+    </Window.CommandBindings>
     <StackPanel>
         <DataGrid ItemsSource="{Binding Schedules}" AutoGenerateColumns="False">
             <DataGrid.Columns >
@@ -18,7 +24,7 @@
                 <DataGridTextColumn  Header="备注" Binding="{Binding Memo}" />
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="确认修改" Click="OnSubmit_Click"/>
+        <Button Content="确认修改"  Command="{StaticResource StartModify}"/>
     </StackPanel>
     
     

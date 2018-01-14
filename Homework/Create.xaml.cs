@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,27 @@ namespace Homework
         public Create()
         {
             InitializeComponent();
+            _Model = new CreateModel();
+            this.DataContext = _Model;
+        }
+        private CreateModel _Model;
+
+        private void OnStartAdd_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            try
+            {
+                _Model.Submit();
+                 MessageBox.Show("添加成功！");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
+        private void OnStartAdd_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
     }
 }

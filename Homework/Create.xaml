@@ -5,40 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Homework"
         mc:Ignorable="d"
-        Title="添加日程" Height="350" Width="300
-        ">
-    <StackPanel DockPanel.Dock="Top">
+        Title="添加日程" Height="350" Width="300">
+    <Window.Resources>
+        <RoutedCommand x:Key="StartAdd" />
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource StartAdd}" Executed="OnStartAdd_Executed" CanExecute="OnStartAdd_CanExecute" />
+    </Window.CommandBindings>
+    <StackPanel DockPanel.Dock="Top" >
         <DockPanel>
-            <Label Content="活动名称：" DockPanel.Dock="Left" />
-            <TextBox Text="" />
+            <Label Content="活动名称：" DockPanel.Dock="Left"  />
+            <TextBox Text="{Binding Name}"/>
         </DockPanel>
         <DockPanel>
             <Label Content="开始日期：" DockPanel.Dock="Left" />
-            <DatePicker  />
+            <TextBox Text="{Binding BeginDate}" />
         </DockPanel>
         <DockPanel>
             <Label Content="开始时间：" DockPanel.Dock="Left" />
-            <TextBox Text="" />
+            <TextBox Text="{Binding BeginTime}" />
         </DockPanel>
         <DockPanel>
             <Label Content="结束日期：" DockPanel.Dock="Left" />
-            <DatePicker  />
+            <TextBox Text="{Binding EndDate}" />
         </DockPanel>
         <DockPanel>
             <Label Content="结束时间：" DockPanel.Dock="Left" />
-            <TextBox Text=" " />
+            <TextBox Text="{Binding EndTime}" />
         </DockPanel>
         <DockPanel>
             <Label Content="活动地点：" DockPanel.Dock="Left" />
-            <TextBox Text=" " />
+            <TextBox Text="{Binding Place}" />
         </DockPanel>
         <DockPanel>
             <Label Content="活动备注：" DockPanel.Dock="Left" />
-            <TextBox Text=" " Height="94" Width="223"  />
+            <TextBox Text="{Binding Memo}" Height="94" Width="223"  />
         </DockPanel>
-
-        <Button Content="重置" />
-        <Button Content="添加" />
+        <Button Content="添加" Command="{StaticResource StartAdd}"/>
 
     </StackPanel>
 

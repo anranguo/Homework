@@ -31,6 +31,7 @@ namespace Homework
             else
             {
                 Regex aRegex = new Regex(Pattern);
+                List<Schedule> Results = new List<Schedule>();
                 for (int i = 0; i < Records.Count; i++)
                 {
                     string Words = (Records[i].Id).ToString() + " " + Records[i].Name + " " + Records[i].BeginDate + " " + Records[i].BeginTime + " " + Records[i].EndDate + " "
@@ -39,9 +40,10 @@ namespace Homework
                     for(int j = 0; j < aMatches.Count; j++)
                     {
                         if (aMatches[j].Success)
-                            FilteredResults.Add(Records[i]);
+                            Results.Add(Records[i]);
                     }
                 }
+                FilteredResults = Results;
 
             }
             for (int i = 0; i < FilteredResults.Count; i++)
@@ -63,12 +65,11 @@ namespace Homework
 
         public string Pattern { get { return _Pattern; } set { if (_Pattern == value) return; _Pattern = value; OnPropertyChanged(nameof(Pattern)); } }
         private string _Pattern;
-        /*
+
         public Table<Schedule> Schedules
         {
             get { return DataContext.Schedule; }
         }
-        */
 
         public ScheduleDataDataContext DataContext { get; }
         private void OnPropertyChanged(string aPropertyName)

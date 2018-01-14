@@ -27,6 +27,11 @@ namespace CreateDatabase
                     {
                         Console.WriteLine("数据库已经存在！");
                     }
+
+                    Schedule aNewSchedule = new Schedule { Name = "睡觉", BeginDate = "qqq", BeginTime = "qqqqq" };
+                    aDataContext.Schedule.InsertOnSubmit(aNewSchedule);
+                    aDataContext.SubmitChanges();
+
                     List<Schedule> Records = new List<Schedule>();
                     List<Schedule> FilteredResults = new List<Schedule>();
                     Records =aDataContext.Schedule.ToList();

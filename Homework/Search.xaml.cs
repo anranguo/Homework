@@ -31,6 +31,7 @@ namespace Homework
             try
             {
                 _Model.DoFilter();
+                MessageBox.Show("查找成功！");
             }
             catch (Exception ex)
             {

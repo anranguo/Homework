@@ -22,21 +22,29 @@ namespace Homework
         public Modify()
         {
             InitializeComponent();
-            _Linq = new LinqToSql();
-            this.DataContext = _Linq;
+            _Model = new ModifyModel();
+            this.DataContext = _Model;
         }
-        private LinqToSql _Linq;
+        private ModifyModel _Model;
 
-        private void OnSubmit_Click(object sender, RoutedEventArgs e)
+
+
+        private void OnStartModify_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             try
             {
-                _Linq.Submit();
+                _Model.Submit();
+                MessageBox.Show("修改成功！");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void OnStartModify_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
         }
     }
 }

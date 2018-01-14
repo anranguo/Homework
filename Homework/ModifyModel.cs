@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace Homework
 {
-    class LinqToSql : INotifyPropertyChanged
+    class ModifyModel : INotifyPropertyChanged
     {
         public const string ConnectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Homework;Integrated Security=True;";
-        public LinqToSql()
+        public ModifyModel()
         {
             DataContext = new ScheduleDataDataContext(ConnectionString);
         }
