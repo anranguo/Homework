@@ -1,10 +1,13 @@
 ﻿using Homework;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace CreateDatabase
 {
@@ -13,6 +16,33 @@ namespace CreateDatabase
         const string ConnectionString = @"Data Source=(localdb)\mssqllocaldb;Initial Catalog=Homework;Integrated Security=true;";
         static void Main(string[] args)
         {
+
+            string c = System.DateTime.Now.ToString();
+            //  Console.WriteLine(c);
+
+            List<string> aList = new List<string>();
+            XDocument document = XDocument.Load("History.xml");
+            //获取到XML的根元素进行操作
+            XElement root = document.Root;
+            XElement ele = root.Element("OneHistory");
+            //获取name标签的值
+            XElement shuxing = ele.Element("Regular");
+            IEnumerable<XElement> enumerable = root.Elements();
+            foreach (XElement item in enumerable)
+            {
+                foreach (XElement item1 in item.Elements())
+                    if (item1.Name.Equals(shuxing.Name)) {
+                        // Console.WriteLine(item1.Value);
+                        aList.Add(item1.Value);
+                    } 
+            }
+
+            foreach (object i in aList)
+                Console.WriteLine(i);
+            Console.ReadKey();
+
+
+
             try
             {
                 // 连接数据库引擎

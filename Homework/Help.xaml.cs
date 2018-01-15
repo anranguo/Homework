@@ -25,8 +25,7 @@ namespace Homework
             try
             {
                 _Model = new HelpModel();
-                // _Model.LoadXmlFile();
-                _Model.LoadXmlFile();
+                _Model.GetTxt();
             }
             catch (Exception ex)
             {

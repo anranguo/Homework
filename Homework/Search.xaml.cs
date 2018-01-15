@@ -28,20 +28,25 @@ namespace Homework
         private SearchModel _Model;
         private void OnStartFilter_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            try
-            {
                 _Model.DoFilter();
+                _Model.WriteXml();
                 MessageBox.Show("查找成功！");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
 
         private void OnStartFilter_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = true;
         }
+
+        private void OnStartHistory_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            _Model.ReadXml();
+        }
+
+        private void OnStartHistory_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
     }
 }

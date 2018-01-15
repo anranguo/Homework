@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -11,15 +12,34 @@ namespace Homework
 {
     class HelpModel : INotifyPropertyChanged
     {
-        public XmlDocument CurrentXml { get { return _CurrentXml; } set { if (_CurrentXml == value) return; _CurrentXml = value; OnPropertyChanged(nameof(CurrentXml)); } }
-        private XmlDocument _CurrentXml;
-        string aFileName = "E:/HelpMe.xml";
-        public void LoadXmlFile()
+
+        public List<string> HelpMe { get { return _HelpMe; } set { if (_HelpMe == value) return; _HelpMe = value; OnPropertyChanged(nameof(HelpMe)); } }
+        private List<string> _HelpMe;
+        public HelpModel()
         {
-            XmlDocument aXml = new XmlDocument();
-            aXml.Load(aFileName);
-            CurrentXml = aXml;
+            //HelpMe = "";
         }
+
+        public void GetTxt()
+        {
+            FileStream fs = new FileStream("HelpMe.txt", FileMode.Open, FileAccess.Read);
+            List<string> aList = new List<string>();
+            StreamReader sr = new StreamReader(fs, Encoding.GetEncoding("gb2312")); 
+            sr.BaseStream.Seek(0, SeekOrigin.Begin);
+            string tmp = sr.ReadLine();
+            //byte[] buffer = Encoding.UTF8.GetBytes(tmp);
+            //tmp = Encoding.GetEncoding("UTF-8").GetString(buffer);
+            while (tmp != null)
+            {
+                aList.Add(tmp);
+                tmp = sr.ReadLine();
+            }
+            sr.Close();
+            fs.Close();
+            HelpMe = aList;
+        }
+
+
 
         private void OnPropertyChanged(string aPropertyName)
         {

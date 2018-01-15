@@ -5,20 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Homework"
         mc:Ignorable="d"
-        Title="查找日程" Height="300" Width="500">
+        Title="查找日程" Height="300" Width="600">
     <Window.Resources>
         <RoutedCommand x:Key="StartFilter" />
+        <RoutedCommand x:Key="StartHistory" />
     </Window.Resources>
     <Window.CommandBindings>
         <CommandBinding Command="{StaticResource StartFilter}" Executed="OnStartFilter_Executed" CanExecute="OnStartFilter_CanExecute" />
+        <CommandBinding Command="{StaticResource StartHistory}" Executed="OnStartHistory_Executed" CanExecute="OnStartHistory_CanExecute" />
+
     </Window.CommandBindings>
+    <StackPanel Orientation="Horizontal">
     <DockPanel>
         <ToolBar DockPanel.Dock="Top">
-            <Label Content="查找条件：" />
-        <TextBox Text="{Binding Pattern}" MinWidth="120" />
-        <Button Content="开始查找" Command="{StaticResource StartFilter}" />
+                <Label Content="查找条件：" MinWidth="120" />
+            <TextBox Text="{Binding Pattern}" MinWidth="150" />
+                <Button Content="开始查找" Command="{StaticResource StartFilter}" MinWidth="150" />
+                <Button Content="查看查询记录" Command="{StaticResource StartHistory}" MinWidth="150" />
         </ToolBar>
         <DataGrid AutoGenerateColumns="True" VerticalAlignment="Top" ItemsSource="{Binding FilteredResults}" IsReadOnly="True" >
         </DataGrid>
+            <ListView  ItemsSource="{Binding HistoryList}" />
+
     </DockPanel>
+
+    </StackPanel>
 </Window>

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace Homework
 {
@@ -59,6 +61,57 @@ namespace Homework
             }
 
         }
+
+        public void WriteXml()
+        {
+            XmlDocument aXml = new XmlDocument();
+            XmlElement History;
+            if (File.Exists("History.xml"))
+            {
+                aXml.Load("History.xml");
+                History = aXml.DocumentElement;
+            }
+            else
+            {
+                XmlDeclaration dec = aXml.CreateXmlDeclaration("1.0", "utf-8", null);
+                aXml.AppendChild(dec);
+                History = aXml.CreateElement("History");
+                aXml.AppendChild(History);
+            }
+            XmlElement OneHistory = aXml.CreateElement("OneHistory");
+            History.AppendChild(OneHistory);
+            XmlElement Regular = aXml.CreateElement("Regular");
+            Regular.InnerText = Pattern;
+            OneHistory.AppendChild(Regular);
+            XmlElement Time  = aXml.CreateElement("Time");
+            string NowTime = System.DateTime.Now.ToString();
+            Time.InnerText = NowTime;
+            OneHistory.AppendChild(Time);
+            aXml.Save("History.xml");
+        }
+
+        public void ReadXml()
+        {
+            List<string> aList = new List<string>();
+            XDocument aXml = XDocument.Load("History.xml");
+            XElement aRoot = aXml.Root;
+            XElement OneHistory = aRoot.Element("OneHistory");
+            XElement shuxing = OneHistory.Element("Regular");
+            IEnumerable<XElement> aEnumerable = aRoot.Elements();
+            foreach (XElement Item in aEnumerable)
+            {
+                foreach (XElement Item1 in Item.Elements())
+                    if (Item1.Name.Equals(shuxing.Name))
+                    {
+                        aList.Add(Item1.Value);
+                    }
+            }
+            HistoryList = aList;
+        }
+
+
+        public List<string> HistoryList { get { return _HistoryList; } set { if (_HistoryList == value) return; _HistoryList = value; OnPropertyChanged(nameof(HistoryList)); } }
+        private List<string> _HistoryList;
 
         public List<Schedule> FilteredResults { get { return _FilteredResults; } set { if (_FilteredResults == value) return; _FilteredResults = value; OnPropertyChanged(nameof(FilteredResults)); } }
         private List<Schedule> _FilteredResults;
