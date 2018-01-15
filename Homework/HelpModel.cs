@@ -17,25 +17,22 @@ namespace Homework
         private List<string> _HelpMe;
         public HelpModel()
         {
-            //HelpMe = "";
         }
 
         public void GetTxt()
         {
-            FileStream fs = new FileStream("HelpMe.txt", FileMode.Open, FileAccess.Read);
+            FileStream aFileStream = new FileStream("HelpMe.txt", FileMode.Open, FileAccess.Read);
             List<string> aList = new List<string>();
-            StreamReader sr = new StreamReader(fs, Encoding.GetEncoding("gb2312")); 
-            sr.BaseStream.Seek(0, SeekOrigin.Begin);
-            string tmp = sr.ReadLine();
-            //byte[] buffer = Encoding.UTF8.GetBytes(tmp);
-            //tmp = Encoding.GetEncoding("UTF-8").GetString(buffer);
-            while (tmp != null)
+            StreamReader aStreamReader = new StreamReader(aFileStream, Encoding.GetEncoding("gb2312"));
+            aStreamReader.BaseStream.Seek(0, SeekOrigin.Begin);
+            string Temp = aStreamReader.ReadLine();
+            while (Temp != null)
             {
-                aList.Add(tmp);
-                tmp = sr.ReadLine();
+                aList.Add(Temp);
+                Temp = aStreamReader.ReadLine();
             }
-            sr.Close();
-            fs.Close();
+            aStreamReader.Close();
+            aFileStream.Close();
             HelpMe = aList;
         }
 

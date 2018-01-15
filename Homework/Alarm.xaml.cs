@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -25,12 +26,8 @@ namespace Homework
             InitializeComponent();
             _Model = new AlarmModel();
             this.DataContext = _Model;
-
-            BackgroundWorker aBackgroundWorker = new BackgroundWorker();
-            aBackgroundWorker.WorkerReportsProgress = true; 
-            aBackgroundWorker.WorkerSupportsCancellation = true;
-            aBackgroundWorker.DoWork += new DoWorkEventHandler(_Model.Alarm);
-            aBackgroundWorker.RunWorkerAsync(this);
+            Thread NowThread = new Thread(new ThreadStart(_Model.Alarm));
+            NowThread.Start();
         }
         private AlarmModel _Model;
 
