@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -34,7 +35,7 @@ namespace Homework
             try
             {
                 _Model.Submit();
-                 MessageBox.Show("添加成功！");
+                MessageBox.Show("添加成功！");
             }
             catch (Exception ex)
             {

@@ -21,15 +21,17 @@ namespace Homework
     /// </summary>
     public partial class Alarm : Window
     {
+        
         public Alarm()
         {
             InitializeComponent();
             _Model = new AlarmModel();
             this.DataContext = _Model;
-            Thread NowThread = new Thread(new ThreadStart(_Model.Alarm));
-            NowThread.Start();
+            BackgroundWorker aBackgroundWorker = new BackgroundWorker();
+            aBackgroundWorker.WorkerSupportsCancellation = true;
+            aBackgroundWorker.DoWork += new DoWorkEventHandler(_Model.Alarm);
+            aBackgroundWorker.RunWorkerAsync(this);
         }
         private AlarmModel _Model;
-
     }
 }

@@ -21,7 +21,7 @@ namespace Homework
             DataContext = new ScheduleDataDataContext(ConnectionString);
         }
 
-        public void Alarm()
+        public void Alarm(object sender, DoWorkEventArgs e)
         {
             
             while (true)
